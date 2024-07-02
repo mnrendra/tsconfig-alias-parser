@@ -1,6 +1,6 @@
 {
   "name": "@mnrendra/tsconfig-alias-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility to parse tsconfig.json baseUrl and paths into aliases.",
   "private": false,
   "main": "dist/index.js",
