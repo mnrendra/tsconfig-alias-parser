@@ -1,6 +1,6 @@
 import type { BaseURL, Paths } from '@mnrendra/types-tsconfig'
 
-import type { Aliases } from '@/types'
+import type { Aliases } from '../types'
 
 import { join } from 'node:path'
 
