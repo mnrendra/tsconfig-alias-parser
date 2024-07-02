@@ -1,4 +1,4 @@
-import type { Aliases, Options } from '@/types'
+import type { Aliases, Options } from '../../types'
 
 import validateSkippedStacks from '@mnrendra/validate-skipped-stacks'
 import { obtainTSConfigPaths } from '@mnrendra/obtain-tsconfig-paths'
