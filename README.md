@@ -57,8 +57,8 @@ parseTSConfigAlias({
 # Types
 ```typescript
 import type {
-  Alias,
-  Aliases,
+  Aliases, // Exported from '@mnrendra/types-aliases'.
+  Alias, // Exported from '@mnrendra/types-aliases'.
   Options
 } from '@mnrendra/tsconfig-alias-parser'
 ```
