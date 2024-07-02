@@ -27,6 +27,7 @@
   "homepage": "https://github.com/mnrendra/tsconfig-alias-parser#readme",
   "dependencies": {
     "@mnrendra/obtain-tsconfig-paths": "^1.0.0",
+    "@mnrendra/types-aliases": "^1.1.0",
     "@mnrendra/types-tsconfig": "^1.1.0",
     "@mnrendra/validate-skipped-stacks": "^1.0.1"
   },
