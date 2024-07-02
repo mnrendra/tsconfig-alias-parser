@@ -1,3 +1,18 @@
-import main from './main'
+import type {
+  Alias,
+  Aliases,
+  Options
+} from './types'
 
-export default main
+import { main, mainSync } from './main'
+
+export type {
+  Alias,
+  Aliases,
+  Options
+}
+
+export {
+  main as parseTSConfigAlias,
+  mainSync as parseTSConfigAliasSync
+}
