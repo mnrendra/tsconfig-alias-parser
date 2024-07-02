@@ -1,4 +1,4 @@
-import type { Alias, Aliases } from '../types'
+import type { Aliases, Alias } from '@mnrendra/types-aliases'
 
 /**
  * Find duplicate `alias` in `aliases`.
