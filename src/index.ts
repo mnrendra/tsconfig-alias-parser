@@ -1,14 +1,12 @@
-import type {
-  Alias,
-  Aliases,
-  Options
-} from './types'
+import type { Aliases, Alias } from '@mnrendra/types-aliases'
+
+import type { Options } from './types'
 
 import { main, mainSync } from './main'
 
 export type {
-  Alias,
   Aliases,
+  Alias,
   Options
 }
 
