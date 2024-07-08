@@ -1,16 +1,23 @@
-import type { Aliases, Alias } from '@mnrendra/types-aliases'
+import { validateSkippedStacks } from '@mnrendra/obtain-tsconfig-paths'
 
-import type { Options } from './types'
-
-import { main, mainSync } from './main'
+import async from './async'
+import sync from './sync'
 
 export type {
   Aliases,
   Alias,
-  Options
-}
+  TSConfig,
+  CompilerOptions,
+  BaseURL,
+  Paths,
+  TSConfigPaths,
+  Options,
+  SkippedStacks,
+  ValidSkippedStacks
+} from './types'
 
 export {
-  main as parseTSConfigAlias,
-  mainSync as parseTSConfigAliasSync
+  async as parseTSConfigAlias,
+  sync as parseTSConfigAliasSync,
+  validateSkippedStacks
 }
