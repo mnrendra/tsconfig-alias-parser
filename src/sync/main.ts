@@ -1,12 +1,13 @@
-import type { Aliases } from '@mnrendra/types-aliases'
+import type { Aliases, Options } from '../types'
 
-import type { Options } from '../../types'
+import {
+  obtainTSConfigPathsSync,
+  validateSkippedStacks
+} from '@mnrendra/obtain-tsconfig-paths'
 
-import validateSkippedStacks from '@mnrendra/validate-skipped-stacks'
-import { obtainTSConfigPathsSync } from '@mnrendra/obtain-tsconfig-paths'
+import { SKIPPED_STACK } from '../consts'
 
-import { PACKAGE_NAME } from '../../consts'
-import { parseAliases } from '../../utils'
+import { parseAliases } from '../utils'
 
 /**
  * Parse `baseUrl` and `paths` from `compilerOptions` into an aliases
@@ -24,7 +25,7 @@ const main = (
   const { skippedStacks: _skippedStacks } = options ?? {}
 
   // Validate skipped stacks.
-  const skippedStacks = validateSkippedStacks(PACKAGE_NAME, _skippedStacks)
+  const skippedStacks = validateSkippedStacks(SKIPPED_STACK, _skippedStacks)
 
   // Obtain a valid `baseUrl` and `paths`.
   const { baseUrl, paths } = obtainTSConfigPathsSync({
