@@ -22,15 +22,16 @@ const main = (
   options?: Options
 ): Aliases => {
   // Extract `options` properties.
-  const { skippedStacks: _skippedStacks } = options ?? {}
+  const { skippedStacks, stackTraceLimit } = options ?? {}
 
   // Validate skipped stacks.
-  const skippedStacks = validateSkippedStacks(SKIPPED_STACK, _skippedStacks)
+  const validSkippedStacks = validateSkippedStacks(SKIPPED_STACK, skippedStacks)
 
   // Obtain a valid `baseUrl` and `paths`.
   const { baseUrl, paths } = obtainTSConfigPathsSync({
     ...options,
-    skippedStacks
+    skippedStacks: validSkippedStacks,
+    stackTraceLimit
   })
 
   // Parse `baseUrl` and `paths` into an aliases.
