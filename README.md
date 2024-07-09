@@ -1,5 +1,6 @@
 # @mnrendra/tsconfig-alias-parser
-A utility to parse `tsconfig.json` `baseUrl` and `paths` into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases).
+A utility to parse `tsconfig.json` `baseUrl` and `paths` into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases).<br/>
+This utility will automatically read the `baseUrl` and `paths` from `tsconfig.json` and parse them into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases) that can be consumed by [@mnrendra/alias-resolver](https://www.npmjs.com/package/@mnrendra/alias-resolver) to resolve all alias paths.
 
 ## Install
 ```bash
