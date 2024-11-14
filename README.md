@@ -1,6 +1,5 @@
 # @mnrendra/tsconfig-alias-parser
-A utility to parse `tsconfig.json` `baseUrl` and `paths` into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases).<br/>
-This utility will automatically read the `baseUrl` and `paths` from `tsconfig.json` and parse them into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases) that can be consumed by [@mnrendra/alias-resolver](https://www.npmjs.com/package/@mnrendra/alias-resolver) to resolve all alias paths.
+Parse the `baseUrl` and `paths` from `tsconfig.json` into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases). This will automatically read `baseUrl` and `paths` from `tsconfig.json` and convert them into [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases) that can be used by [@mnrendra/alias-resolver](https://www.npmjs.com/package/@mnrendra/alias-resolver) to resolve all alias paths.
 
 ## Install
 ```bash
@@ -39,29 +38,15 @@ const aliases = parseTSConfigAliasSync()
 console.log('synchronously:', aliases)
 ```
 
-# Options
-```javascript
-// Skip your module stack:
-parseTSConfigAlias({
-  skippedStacks: 'your-module-name', // To skip your module stack when you want to publish your package and allow your consumer's `tsconfig.json` to be read.
-  stackTraceLimit: 10 // To specify the number of stack frames to be collected by `@mnrendra/stack-trace`.
-})
-
-// Or by passing your `baseUrl` and `paths` manually:
-parseTSConfigAlias({
-  baseUrl: './src',
-  paths: {
-    '@': ['./']
-  }
-})
-```
-
-## Utility
-```javascript
-import {
-  validateSkippedStacks // To validate the list of stacks to be skipped. More info: @mnrendra/validate-skipped-stacks
-} from '@mnrendra/tsconfig-alias-parser'
-```
+## Options
+### • `baseUrl`
+*type: `BaseURL|null|undefined`*<br/>
+*default: `undefined`*<br/>
+`tsconfig.json`'s `compilerOptons.baseUrl`.
+### • `paths`
+*type: `Paths|null|undefined`*<br/>
+*default: `undefined`*<br/>
+`tsconfig.json`'s `compilerOptons.paths`.
 
 ## Types
 ```typescript
@@ -73,12 +58,7 @@ import type {
   TSConfig,
   CompilerOptions,
   BaseURL,
-  Paths,
-  // @mnrendra/tsconfig-alias-parser
-  Options,
-  // @mnrendra/validate-skipped-stacks
-  SkippedStacks,
-  ValidSkippedStacks
+  Paths
 } from '@mnrendra/tsconfig-alias-parser'
 ```
 

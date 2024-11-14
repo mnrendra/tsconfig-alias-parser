@@ -1,38 +1,28 @@
-import type { Aliases, Options } from '../types'
+import type { Aliases } from '@mnrendra/types-aliases'
 
 import {
-  obtainTSConfigPathsSync,
-  validateSkippedStacks
+  type CompilerOptions,
+  obtainTSConfigPathsSync
 } from '@mnrendra/obtain-tsconfig-paths'
-
-import { SKIPPED_STACK } from '../consts'
 
 import { parseAliases } from '../utils'
 
 /**
- * Parse `baseUrl` and `paths` from `compilerOptions` into an aliases
+ * Parse the `baseUrl` and `paths` from `tsconfig.json` into
+ * [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases)
  * synchronously.
  *
- * @param {Options} options - tsconfig.json `compilerOptions` value or
- * `skippedStacks`.
+ * @param {CompilerOptions} [options] - A `compilerOptions` object.
  *
- * @returns An aliases.
+ * @returns {Aliases} A list of aliases.
+ *
+ * @see https://github.com/mnrendra/tsconfig-alias-parser#readme
  */
 const main = (
-  options?: Options
+  options: CompilerOptions = {}
 ): Aliases => {
-  // Extract `options` properties.
-  const { skippedStacks, stackTraceLimit } = options ?? {}
-
-  // Validate skipped stacks.
-  const validSkippedStacks = validateSkippedStacks(SKIPPED_STACK, skippedStacks)
-
   // Obtain a valid `baseUrl` and `paths`.
-  const { baseUrl, paths } = obtainTSConfigPathsSync({
-    ...options,
-    skippedStacks: validSkippedStacks,
-    stackTraceLimit
-  })
+  const { baseUrl, paths } = obtainTSConfigPathsSync(options)
 
   // Parse `baseUrl` and `paths` into an aliases.
   const aliases = parseAliases(baseUrl, paths)
@@ -41,5 +31,4 @@ const main = (
   return aliases
 }
 
-// Export `main` as the default value.
 export default main

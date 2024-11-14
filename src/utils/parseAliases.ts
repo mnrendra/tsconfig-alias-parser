@@ -1,18 +1,11 @@
-import type { Aliases, BaseURL, Paths } from '../types'
+import type { Aliases } from '@mnrendra/types-aliases'
+import type { BaseURL, Paths } from '@mnrendra/obtain-tsconfig-paths'
 
 import { join } from 'node:path'
 
 import findDuplicate from './findDuplicate'
 import sanitizeSuffix from './sanitizeSuffix'
 
-/**
- * Parse `compilerOptions`' `baseUrl` and `paths` into valid aliases.
- *
- * @param {BaseURL} baseUrl - `compilerOptions`' `baseUrl`.
- * @param {Paths} paths - `compilerOptions`' `paths`.
- *
- * @returns {Aliases} A list of aliases.
- */
 const parseAliases = (
   baseUrl: BaseURL,
   paths: Paths
@@ -57,5 +50,4 @@ const parseAliases = (
   return aliases
 }
 
-// Export `parseAliases` as the default value.
 export default parseAliases

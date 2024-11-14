@@ -1,38 +1,28 @@
-import type { Aliases, Options } from '../types'
+import type { Aliases } from '@mnrendra/types-aliases'
 
 import {
-  obtainTSConfigPaths,
-  validateSkippedStacks
+  type CompilerOptions,
+  obtainTSConfigPaths
 } from '@mnrendra/obtain-tsconfig-paths'
-
-import { SKIPPED_STACK } from '../consts'
 
 import { parseAliases } from '../utils'
 
 /**
- * Parse `baseUrl` and `paths` from `compilerOptions` into an aliases
+ * Parse the `baseUrl` and `paths` from `tsconfig.json` into
+ * [aliases](https://www.npmjs.com/package/@mnrendra/types-aliases)
  * asynchronously.
  *
- * @param {Options} options - tsconfig.json `compilerOptions` value or
- * `skippedStacks`.
+ * @param {CompilerOptions} [options] - A `compilerOptions` object.
  *
- * @returns An aliases.
+ * @returns {Promise<Aliases>} A list of aliases.
+ *
+ * @see https://github.com/mnrendra/tsconfig-alias-parser#readme
  */
 const main = async (
-  options?: Options
+  options: CompilerOptions = {}
 ): Promise<Aliases> => {
-  // Extract `options` properties.
-  const { skippedStacks, stackTraceLimit } = options ?? {}
-
-  // Validate skipped stacks.
-  const validSkippedStacks = validateSkippedStacks(SKIPPED_STACK, skippedStacks)
-
   // Obtain a valid `baseUrl` and `paths`.
-  const { baseUrl, paths } = await obtainTSConfigPaths({
-    ...options,
-    skippedStacks: validSkippedStacks,
-    stackTraceLimit
-  })
+  const { baseUrl, paths } = await obtainTSConfigPaths(options)
 
   // Parse `baseUrl` and `paths` into an aliases.
   const aliases = parseAliases(baseUrl, paths)
@@ -41,5 +31,4 @@ const main = async (
   return aliases
 }
 
-// Export `main` as the default value.
 export default main

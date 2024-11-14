@@ -1,13 +1,5 @@
-import type { Aliases, Alias } from '../types'
+import type { Aliases, Alias } from '@mnrendra/types-aliases'
 
-/**
- * Find duplicate `alias` in `aliases`.
- *
- * @param {Aliases} aliases - List of alias.
- * @param {string} validAlias - A valid alias.
- *
- * @returns {Alias|undefined} The result.
- */
 const findDuplicate = (
   aliases: Aliases,
   validAlias: string
@@ -24,5 +16,4 @@ const findDuplicate = (
   return result
 }
 
-// Export `findDuplicate` as the default value.
 export default findDuplicate
