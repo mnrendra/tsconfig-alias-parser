@@ -1,10 +1,3 @@
-/**
- * Sanitize the `path` or `alias` suffix.
- *
- * @param {string} value - A `path` or an `alias`.
- *
- * @returns {string} A sanitized `path` or `alias`.
- */
 const sanitizeSuffix = (
   value: string
 ): string => {
@@ -18,5 +11,4 @@ const sanitizeSuffix = (
   return value
 }
 
-// Export `sanitizeSuffix` as the default value.
 export default sanitizeSuffix
