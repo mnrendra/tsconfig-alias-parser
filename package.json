@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/mnrendra/tsconfig-alias-parser#readme",
   "dependencies": {
-    "@mnrendra/obtain-tsconfig-paths": "^1.2.1",
-    "@mnrendra/types-aliases": "^1.1.0"
+    "@mnrendra/obtain-tsconfig-paths": "^1.2.2",
+    "@mnrendra/types-aliases": "^1.1.1"
   },
   "devDependencies": {
     "@semantic-release/exec": "^7.0.3",
